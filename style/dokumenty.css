@@ -1,0 +1,153 @@
+/* --- ZÁKLADNÍ NASTAVENÍ (Stejné jako Homepage) --- */
+:root {
+    --primary-color: #004e92;
+    --secondary-color: #000428;
+    --accent-color: #ff9800;
+    --text-color: #333;
+    --light-bg: #f4f7f6;
+    --white: #ffffff;
+    --grey-border: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--light-bg); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- NAVIGACE --- */
+header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+.logo span { color: var(--secondary-color); }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { font-weight: 500; color: var(--secondary-color); }
+.nav-links a:hover { color: var(--primary-color); }
+.cta-button { background-color: var(--primary-color); color: var(--white) !important; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+.cta-button:hover { background-color: var(--secondary-color); }
+
+/* --- SUB-PAGE HERO (Menší než na hlavní stránce) --- */
+.page-hero {
+    background: linear-gradient(rgba(0, 4, 40, 0.8), rgba(0, 78, 146, 0.8)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Menší výška */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-hero h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- OBSAH DOKUMENTŮ --- */
+.content-wrapper {
+    max-width: 1000px;
+    margin: -40px auto 60px; /* Posunutí nahoru přes Hero */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Vyhledávací lišta */
+.search-bar {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-input:focus { border-color: var(--primary-color); }
+
+.search-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Sekce dokumentů */
+.doc-section { margin-bottom: 40px; }
+.doc-section h2 { 
+    color: var(--primary-color); 
+    margin-bottom: 20px; 
+    margin-top: 60px;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+/* Seznam souborů */
+.file-list {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--grey-border);
+    transition: background 0.2s;
+}
+
+.file-item:last-child { border-bottom: none; }
+.file-item:hover { background-color: #f9fbff; }
+
+.file-info { display: flex; align-items: center; gap: 15px; }
+
+.file-icon {
+    font-size: 1.5rem;
+    color: #e74c3c; /* Červená pro PDF */
+}
+
+.file-icon.doc { color: #2980b9; /* Modrá pro Word */ }
+
+.file-name { font-weight: 500; font-size: 1.05rem; display: block; }
+.file-meta { font-size: 0.85rem; color: #888; margin-top: 4px; }
+
+.download-btn {
+    padding: 8px 15px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- FOOTER (Stejné) --- */
+footer { background-color: var(--secondary-color); color: #ccc; padding: 60px 20px 20px; margin-top: auto; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+.footer-col h4 { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+.footer-col ul li { margin-bottom: 10px; }
+.copyright { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .file-item { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .download-btn { width: 100%; text-align: center; }
+    .content-wrapper { margin-top: -20px; }
+}
